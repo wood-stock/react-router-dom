@@ -7,10 +7,11 @@ const BlogPage = () => {
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
-
+  // const useLocation = useLocation(); //объет, содержит hash,key,pathname,search,state
   return (
     <>
       <h1>Blog</h1>
+      <Link to='/blog/new'>Add new post</Link>
       {posts.map(({ id, title }) => (
         <Link key={id} to={`/blog/${id}`}>
           <li>{title}</li>
