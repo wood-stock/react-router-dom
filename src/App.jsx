@@ -27,7 +27,11 @@ const App = () => {
               </RequireAuth>
             }
           />
-          <Route path='about' element={<AboutPage />} />
+          <Route path='about' element={<AboutPage />}>
+            {/* если роуты вложены здесь в route, то path='about/*' не нужен */}
+            <Route path='contacts' element={<p>Контакты</p>} />
+            <Route path='tituls' element={<p>Титулы</p>} />
+          </Route>
           <Route path='about-us' element={<Navigate to='/about' replace />} />
           {/* Navigate для переадресации replace чтоб не отображать переадресацию в истории*/}
           <Route path='login' element={<LoginPage />} />
